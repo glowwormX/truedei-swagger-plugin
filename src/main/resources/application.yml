@@ -28,3 +28,11 @@ spring:
 #    view:
 #      prefix: classpath:/**
 #      suffix: .html
+
+#swagger 配置
+swagger-plugin:
+  #配置要扫描的controller层
+  scan:
+    path: com.truedei.swagger.plugin.controller
+  #是否开启swagger-plugin框架的debug模式
+  debug: false

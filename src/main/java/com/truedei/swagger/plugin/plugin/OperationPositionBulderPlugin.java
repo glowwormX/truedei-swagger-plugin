@@ -1,21 +1,18 @@
 
 package com.truedei.swagger.plugin.plugin;
 
-import com.fasterxml.classmate.TypeResolver;
+import com.google.common.base.Optional;
 import com.truedei.swagger.plugin.annotation.APiFileInfo;
 import com.truedei.swagger.plugin.bean.APiFileInfoBean;
 import com.truedei.swagger.plugin.bean.SwaggerPluginConfigBean;
-import com.truedei.swagger.plugin.util.MdToHtml;
 import com.truedei.swagger.plugin.io.ResolverUtil;
-import com.google.common.base.Optional;
+import com.truedei.swagger.plugin.util.MdToHtml;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import springfox.documentation.builders.ResponseMessageBuilder;
 import springfox.documentation.service.ResponseMessage;
 import springfox.documentation.spi.DocumentationType;
@@ -46,6 +43,8 @@ public class OperationPositionBulderPlugin implements OperationBuilderPlugin {
 
     @Autowired
     private SwaggerPluginConfigBean swaggerPluginConfigBean;
+    @Autowired
+    private WebMvcConfigurationSupport webMvcConfigurationSupport;
 
     @Override
     public void apply(OperationContext context) {
